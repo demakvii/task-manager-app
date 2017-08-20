@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <home-navbar>
+    </home-navbar>
+    <br>
+    <br>
+    <div class="container">
+      <br>
+        <br>
+        <br>
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">
+                <h1>Add SubTask</h1>
+            </div>
+            <br>
+            <br>
+            <div class="panel-body">
+                <form name="addSubTaskForm">
+                    <div class="form-group">
+                        <label for="name">Task Name:</label>
+                        <input type="text" class="form-control" name="name" placeholder="Enter Task name" ng-model="newSubTask.name" required>
+                        <span style="color:red" ng-show="addSubTaskForm.name.$dirty && addSubTaskForm.name.$invalid ||addSubTaskForm.name.$untouched">
+<span ng-show="addSubTaskForm.name.$error.required">*</span>
+                        </span>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="descp">Task Description</label>
+                        <input type="text" class="form-control" name="descp" placeholder="Enter Task Description" ng-model="newSubTask.description" required>
+                        <span style="color:red" ng-show="addSubTaskForm.descp.$dirty && addSubTaskForm.descp.$invalid||addSubTaskForm.descp.$untouched">
+<span ng-show="addSubTaskForm.descp.$error.required">*</span>
+                        </span>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="date">Start Date</label>
+                        <input type="date" class="form-control" name="startDate" ng-model="newSubTask.startDate" required>
+                        <span style="color:red" ng-show="addSubTaskFormaddSubTaskForm.startDate.$dirty && addSubTaskForm.startDate.$invalid||addSubTaskForm.startDate.$untouched">
+<span ng-show="addSubTaskForm.startDate.$error.required">*</span>
+                        </span>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-group">
+                        <label for="date">End Date</label>
+                        <input type="date" class="form-control" name="endDate" ng-model="newSubTask.endDate" required>
+                        <span style="color:red" ng-show="addSubTaskForm.endDate.$dirty && addSubTaskForm.endDate.$invalid||addSubTaskForm.endDate.$untouched">
+<span ng-show="addSubTaskForm.endDate.$error.required">*</span>
+                        </span>
+                    </div>
+                    <br>
+                    <center>
+                        <button type="button" class="btn btn-success btn-lg" ng-click="addSubTask()" ng-disabled="(addSubTaskForm.name.$dirty && addSubTaskForm.name.$invalid||addSubTaskForm.name.$untouched)||
+(addSubTaskForm.descp.$dirty && addSubTaskForm.descp.$invalid||addSubTaskForm.descp.$untouched)||
+(addSubTaskForm.startDate.$dirty && addSubTaskForm.startDate.$invalid||addSubTaskForm.startDate.$untouched)||
+(addSubTaskForm.endDate.$dirty && addSubTaskForm.endDate.$invalid||addSubTaskForm.endDate.$untouched)
+                        ">Add SubTask</button>
+                    </center>
+                </form>
+            </div>
+        </div>
+</body>
+
+</html>

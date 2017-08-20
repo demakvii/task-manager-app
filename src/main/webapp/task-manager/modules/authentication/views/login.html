@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+
+<style type="text/css">
+
+.main {
+    margin-top: 70px;
+}
+
+.main-login {
+    background-color: #fff;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.main-center {
+    margin-top: 30px;
+    margin: 0 auto;
+    max-width: 330px;
+    padding: 40px 40px;
+}
+</style>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top main-login">
+    <div class="container-fluid">
+        <div class="navbar-header navbar-brand">
+            Task Manager
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row main">
+        <div class="panel-heading">
+            <div class="panel-title text-center">
+                <h1 class="title" >Login</h1>
+                <hr style="width:30%;" />
+
+            </div>
+        </div>
+        <div class="main-login main-center">
+        <div ng-show="error" style="color:red;">{{errorMsg}}</div>
+            <form class="form-horizontal" ng-submit="login()" name="form">
+                <div class="form-group">
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+                            <input type="text" class="form-control" ng-model="user.userName"  name="username" placeholder="Enter User Name" required="true"/>
+                        </div>
+                        <span ng-show="form.username.$dirty&&form.username.$error.required" style="color:red;">Username is required</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+                            <input type="password" class="form-control" name="password" id="password" ng-model="user.password" placeholder="Enter password" required="true" />
+                        </div>
+                    </div>
+                    <span ng-show="form.password.$dirty && form.password.$error.required" style="color:red;">Password is required</span>
+                </div>
+                <div class="form-group ">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

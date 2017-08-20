@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <home-navbar>
+    </home-navbar>
+    <br>
+    <br>
+    <div class="container">
+     <br>
+        <br>
+        <br>
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">
+                <h1>Add Task</h1>
+            </div>
+            <br>
+            <br>
+            <div class="panel-body">
+                <form name="addTaskForm">
+                    <div class="form-group">
+                        <label for="name">Task Name:</label>
+                        <input type="text" class="form-control" name="name" placeholder="Enter Task name" ng-model="newTask.name" required>
+                        <span style="color:red" ng-show="addTaskForm.name.$dirty && addTaskForm.name.$invalid ||addTaskForm.name.$untouched">
+<span ng-show="addTaskForm.name.$error.required">*</span>
+                        </span>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="descp">Task Description</label>
+                        <input type="text" class="form-control" name="descp" placeholder="Enter Task Description" ng-model="newTask.description" required>
+                        <span style="color:red" ng-show="addTaskForm.descp.$dirty && addTaskForm.descp.$invalid||addTaskForm.descp.$untouched">
+<span ng-show="addTaskForm.descp.$error.required">*</span>
+                        </span>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="date">Start Date</label>
+                        <input type="date" class="form-control" name="startDate" ng-model="newTask.startDate" required>
+                        <span style="color:red" ng-show="addTaskForm.startDate.$dirty && addTaskForm.startDate.$invalid||addTaskForm.startDate.$untouched">
+<span ng-show="addTaskForm.startDate.$error.required">*</span>
+                        </span>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="date">End Date</label>
+                        <input type="date" class="form-control" name="endDate" ng-model="newTask.endDate" required>
+                        <span style="color:red" ng-show="addTaskForm.endDate.$dirty && addTaskForm.endDate.$invalid||addTaskForm.endDate.$untouched">
+<span ng-show="addTaskForm.endDate.$error.required">*</span>
+                        </span>
+                    </div>
+                    <br>
+                    <center>
+                        <button type="button" class="btn btn-success btn-lg" ng-click="addTask()" ng-disabled="(addTaskForm.name.$dirty && addTaskForm.name.$invalid||addTaskForm.name.$untouched)||
+(addTaskForm.descp.$dirty && addTaskForm.descp.$invalid||addTaskForm.descp.$untouched)||
+(addTaskForm.startDate.$dirty && addTaskForm.startDate.$invalid||addTaskForm.startDate.$untouched)||
+(addTaskForm.endDate.$dirty && addTaskForm.endDate.$invalid||addTaskForm.endDate.$untouched)
+                        ">Add Task</button>
+                    </center>
+                </form>
+            </div>
+        </div>
+</body>
+
+</html>

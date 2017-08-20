@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Manage Task</title>
+  
+</head>
+
+<body>
+    <home-navbar>
+    </home-navbar>
+    <br><br><br>
+
+    <div class="container">
+   
+  
+        <br>
+        <br>
+        <br>
+
+        <center>
+         <div class="table-responsive" ng-hide="!(taskList.length>0)">
+          <div class="panel panel-primary">
+            <div class="panel-heading text-center">
+                <h1>List of Tasks</h1>
+            </div>
+            <div class="panel-body">
+           <table class="table table-sm">
+               <tr>
+                   <td>
+                   <table class="table table-hover table-sm">
+                   <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Status</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                   
+                    </tr>
+                </thead>
+                   <tbody ng-repeat="task in taskList track by $index">
+                       <tr> 
+             <td>
+                            <input type="checkbox" ng-disabled="task.status" name="" ng-checked="task.status" ng-model="task.status"ng-click="updateTask(task)">
+                        </td>
+                        <td  ng-click="hideSub(task.taskId,$index)" ><span class="glyphicon glyphicon-chevron-down" ng-show="task.subTaskList.length>0" id="{{$index}}" ></span>
+
+                        </td>
+                        <th scope="row">{{$index+1}}</th>
+                        <td data-toggle="collapse" >{{task.name}}</td>
+                        <td>{{task.description}}</td>
+                        <td >{{task.startDate}}</td>
+                        <td >{{task.endDate}}</td>
+
+                        <td>
+                            <h5><span class="label label-success" ng-hide="(task.status==0)" >Completed</span>
+                                <span class="label label-danger" ng-hide="(task.status==1)" >Pending</span>
+                            </h5></td>
+                        <td>
+                         <a href="#/{{task.taskId}}/addSubTask" title="Add SubTask">
+             <button class="btn btn-default btn" ng-disabled="task.status"><span class="glyphicon glyphicon-plus"></span></button></a>
+                            
+                        </td>
+                        <td>
+                        <a href="#/{{task.taskId}}/editTask" title="Edit Task">
+                            <button class="btn btn-default" ng-disabled="task.status" ><span class="glyphicon glyphicon-pencil"></span></button></a>
+                        </td>
+                        <td>
+                         <a href="#/{{task.taskId}}/deleteTask" title="Delete Task">
+                            <button class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></button></a>
+                        </td>
+
+                       </tr>
+                       <tr ng-repeat="subtask in task.subTaskList track by $index" class="bg-info {{task.taskId}}">
+                      
+  <th scope="row"></th><td></td>
+                                            <td>
+                                                <input type="checkbox"  ng-checked="subtask.status" ng-disabled="subtask.status"  ng-model="subtask.status" ng-click="updateSubTask(task.taskId,subtask)">
+                                            </td>
+                                            <td>{{subtask.name}}</td>
+                                            <td>{{subtask.description}}</td>
+                                            <td>{{subtask.startDate}}</td>
+                                            <td>{{subtask.endDate}}</td>
+
+                                            <td>
+                                                <span class="label label-success" ng-hide="(subtask.status==0)">Completed</span>
+                                                <span class="label label-danger" ng-hide="(subtask.status==1)">Pending</span></td>
+                                            <td>
+                                            <a href="#/{{task.taskId}}/{{subtask.subTaskId}}/editSubTask" title="Edit SubTask">
+                                                <button class="btn btn-default" ng-disabled="subtask.status"><span class="glyphicon glyphicon-pencil"></span></button></a>
+                                            </td>
+                                            <td>
+                                            <a href="#/{{task.taskId}}/{{subtask.subTaskId}}/deleteSubTask" title="Delete SubTask">
+                                                <button class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></button></a>
+                                            </td>
+                                            <td></td>
+                                            
+                        </tr>
+</tbody>
+                   </table>
+                   </td>
+
+               </tr>
+
+           </table>
+           </div></div>
+            </div>
+             <div  ng-hide="(taskList.length>0)">
+              <h4>No Tasks Added Yet!</h4>
+              <a href="#/addTask"><h5>Add a new Task</h5></a>
+             <hr>
+             </div>
+            
+            
+             
+        </center>
+    </div>
+</body>
+
+</html>
